@@ -12,4 +12,25 @@ public class Bus {
     }
 
 
+    public String getDestination() {
+        return destination;
+    }
+
+    public int maxCapacity() {
+        return capacity;
+    }
+
+    public int passengerCount() {
+        return people.size();
+    }
+
+    public void addPassenger(Person person) {
+        if (passengerCount() < capacity) {
+        people.add(person);
+        } return;
+    }
+
+    public void removePassenger() {
+        people.remove(0);
+    }
 }
