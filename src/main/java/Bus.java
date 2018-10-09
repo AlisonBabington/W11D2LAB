@@ -24,10 +24,16 @@ public class Bus {
         return people.size();
     }
 
-    public void addPassenger(Person person) {
+    public String busFull() {
+        return "The bus is full!";
+    }
+
+    public String addPassenger(Person person) {
         if (passengerCount() < capacity) {
         people.add(person);
-        } return;
+        return "";
+        }
+        return busFull();
     }
 
     public void removePassenger() {

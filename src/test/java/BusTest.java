@@ -48,6 +48,7 @@ public class BusTest {
         assertEquals(10, bus.passengerCount());
         bus.addPassenger(person);
         assertEquals(10, bus.passengerCount());
+        assertEquals("The bus is full!", bus.addPassenger(person));
     }
 
     @Test
@@ -83,4 +84,11 @@ public class BusTest {
         assertEquals(0, stop.getQueueLength());
         assertEquals(5, bus.passengerCount());
     }
+
+//    @Test
+//    public void full() {
+//        bus.addPassenger(person);
+//        bus.addPassenger(person);
+//        bus.addPassenger(person);
+//    }
 }
