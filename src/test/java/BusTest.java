@@ -70,4 +70,17 @@ public class BusTest {
         assertEquals(2, stop.getQueueLength());
         assertEquals(1, bus.passengerCount());
     }
+
+    @Test
+    public void pickupAll() {
+        stop.addPerson(person);
+        stop.addPerson(person);
+        stop.addPerson(person);
+        stop.addPerson(person);
+        stop.addPerson(person);
+        assertEquals(5, stop.getQueueLength());
+        bus.pickupAll(stop);
+        assertEquals(0, stop.getQueueLength());
+        assertEquals(5, bus.passengerCount());
+    }
 }

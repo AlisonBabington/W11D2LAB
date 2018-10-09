@@ -38,4 +38,12 @@ public class Bus {
         Person person = stop.removePerson();
         addPassenger(person);
     }
+
+    public void pickupAll(BusStop stop) {
+        int queuelength = stop.getQueueLength();
+        for (int i = 0; i < queuelength; i++) {
+            pickup(stop);
+        }
+    }
+
 }
