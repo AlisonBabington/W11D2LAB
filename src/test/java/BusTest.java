@@ -32,24 +32,6 @@ public class BusTest {
         assertEquals(1, bus.passengerCount());
     }
 
-    @Test
-    public void fullBus() {
-        bus.addPassenger(person);
-        bus.addPassenger(person);
-        bus.addPassenger(person);
-        bus.addPassenger(person);
-        bus.addPassenger(person);
-        bus.addPassenger(person);
-        bus.addPassenger(person);
-        bus.addPassenger(person);
-        bus.addPassenger(person);
-        bus.addPassenger(person);
-        bus.addPassenger(person);
-        assertEquals(10, bus.passengerCount());
-        bus.addPassenger(person);
-        assertEquals(10, bus.passengerCount());
-        assertEquals("The bus is full!", bus.addPassenger(person));
-    }
 
     @Test
     public void removePassenger() {
@@ -85,10 +67,24 @@ public class BusTest {
         assertEquals(5, bus.passengerCount());
     }
 
-//    @Test
-//    public void full() {
-//        bus.addPassenger(person);
-//        bus.addPassenger(person);
-//        bus.addPassenger(person);
-//    }
+    @Test
+    public void fullPickup() {
+        bus.addPassenger(person);
+        bus.addPassenger(person);
+        bus.addPassenger(person);
+        bus.addPassenger(person);
+        bus.addPassenger(person);
+        bus.addPassenger(person);
+        assertEquals(6, bus.passengerCount());
+        stop.addPerson(person);
+        stop.addPerson(person);
+        stop.addPerson(person);
+        stop.addPerson(person);
+        stop.addPerson(person);
+        assertEquals(5, stop.getQueueLength());
+        bus.pickupAll(stop);
+        assertEquals(10, bus.passengerCount());
+        assertEquals(1, stop.getQueueLength());
+        assertEquals("The bus is full!", bus.pickup(stop));
+    }
 }

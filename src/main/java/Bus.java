@@ -28,21 +28,22 @@ public class Bus {
         return "The bus is full!";
     }
 
-    public String addPassenger(Person person) {
-        if (passengerCount() < capacity) {
+    public void addPassenger(Person person) {
         people.add(person);
-        return "";
-        }
-        return busFull();
     }
 
     public void removePassenger() {
         people.remove(0);
     }
 
-    public void pickup(BusStop stop) {
-        Person person = stop.removePerson();
-        addPassenger(person);
+    public String pickup(BusStop stop) {
+        if (passengerCount() < capacity) {
+            Person person = stop.removePerson();
+            addPassenger(person);
+            return "";
+        } else {
+            return busFull();
+        }
     }
 
     public void pickupAll(BusStop stop) {
